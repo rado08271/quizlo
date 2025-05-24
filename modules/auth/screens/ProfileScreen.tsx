@@ -1,15 +1,15 @@
 import React from 'react';
 import {Image, Pressable, ScrollView, StyleSheet, Text, View} from "react-native";
-import typography from "../../../../core/styles/typography";
+import typography from "../../../core/styles/typography";
 import Icon from 'react-native-vector-icons/AntDesign';
-import FilledButton from "../../../../core/components/buttons/FilledButton";
-import {mockedUserProfile} from "../../services/get-user-profile";
+import FilledButton from "../../../core/components/buttons/FilledButton";
+import {mockedUserProfile} from "../services/get-user-profile";
 
 const ProfileScreen = () => {
     return (
         <View style={styles.container}>
             <View style={styles.userContainer}>
-                <Image alt={`user image of a user called ${'username'}`}
+                <Image alt={`user image of a user called ${mockedUserProfile.userName}`}
                        src={mockedUserProfile.userImageUrl}
                        style={styles.userProfileImage}/>
                 <View style={styles.userNameSection}>

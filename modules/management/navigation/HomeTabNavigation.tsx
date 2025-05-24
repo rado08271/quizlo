@@ -1,8 +1,9 @@
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 
 import React from 'react';
-import {HomeScreen, ProfileScreen, QuizListScreen} from "../screens";
+import {HomeScreen, QuizListScreen} from "../screens";
 import {HeaderHomeAddAction} from "../components";
+import {ProfileScreen} from "../../auth/screens";
 
 const Tab = createBottomTabNavigator();
 

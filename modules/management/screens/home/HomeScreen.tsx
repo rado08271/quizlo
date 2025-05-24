@@ -109,7 +109,6 @@ const styles = StyleSheet.create({
     statsContainer: {
         position: "relative",
         display: "flex",
-        flex: 1,
         alignItems: "center",
         justifyContent: "center",
         gap: 16,

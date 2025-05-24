@@ -1,14 +1,14 @@
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 
-const Stack = createNativeStackNavigator();
 
 import React from 'react';
-import {HomeScreen} from "../screens";
-import EventDetailScreen from "../screens/details/EventDetailScreen";
 import HomeTabNavigation from "./HomeTabNavigation";
 import EventTabsNavigation from "./EventTabsNavigation";
 import QuizOrgManagentScreen from "../screens/QuizOrgManagentScreen";
 import ManageMailsScreen from "../screens/ManageMailsScreen";
+import CreateQuizScreen from "../screens/CreateQuizScreen";
+
+const Stack = createNativeStackNavigator();
 
 const ManagementNavigator = () => {
     return (
@@ -17,6 +17,7 @@ const ManagementNavigator = () => {
             <Stack.Screen name="Details" component={EventTabsNavigation} />
             <Stack.Screen name="ManageQuizOrgs" component={QuizOrgManagentScreen} />
             <Stack.Screen name="ManageQuizMails" component={ManageMailsScreen} />
+            <Stack.Screen name="CreateQuiz" component={CreateQuizScreen} />
         </Stack.Navigator>
     );
 };

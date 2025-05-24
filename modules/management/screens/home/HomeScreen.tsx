@@ -1,7 +1,9 @@
 import React from 'react';
-import {Pressable, Text, StyleSheet, View} from "react-native";
+import {FlatList, Pressable, StyleSheet, Text, View} from "react-native";
 import Icon from 'react-native-vector-icons/AntDesign';
 import {useNavigation} from "@react-navigation/native";
+import typography from "../../../../core/styles/typography";
+import {mockedQuizDetails} from "../../services/get-quiz-details";
 
 const HomeScreen = () => {
     const { navigate } = useNavigation()
@@ -14,58 +16,48 @@ const HomeScreen = () => {
             <Text style={styles.header}>Manage People</Text>
             <View style={styles.manageContainer}>
                 <Pressable android_ripple={{color: "#eee"}} style={styles.manageRow} onPress={navigateToCollaboratorsManagement}>
-                    <View style={styles.manageRowIcon}>
-                        <Icon name={'team'} size={24}/>
+                    <View style={styles.manageRowIcon}><Icon name={'team'} size={24}/></View>
+                    <View style={styles.manageRowContent}>
+                        <Text style={typography.content}>Collaborators</Text>
+                        <Text style={typography.content}>{mockedQuizDetails.people.team}</Text>
                     </View>
-                    <Text style={styles.manageRowText}>Collaborators</Text>
                 </Pressable>
                 <Pressable android_ripple={{color: "#eee"}} style={styles.manageRow} onPress={navigateToEmailManagement}>
                     <View style={styles.manageRowIcon}>
                         <Icon name={'inbox'} size={24}/>
                     </View>
-                    <Text style={styles.manageRowText}>Users</Text>
+                    <View style={styles.manageRowContent}>
+                        <Text style={typography.content}>Users</Text>
+                        <Text style={typography.content}>{mockedQuizDetails.people.users}</Text>
+                    </View>
                 </Pressable>
             </View>
 
             <Text style={styles.header}>Quiz Details</Text>
             <View style={styles.detailsContainer}>
                 <View style={styles.detailsRow}>
-                    <Text style={styles.detailsRowTitle}>Started Date</Text>
-                    <Text style={styles.detailsRowValue}>11.11.2022</Text>
+                    <Text style={typography.subtitle}>Started Date</Text>
+                    <Text style={typography.title}>{mockedQuizDetails.details.startedDate.format('DD.MM.YYYY')}</Text>
                 </View>
                 <View style={styles.detailsRow}>
-                    <Text style={styles.detailsRowTitle}>Next Quiz</Text>
-                    <Text style={styles.detailsRowValue}>27.06.2025</Text>
-                </View>
-                <View style={styles.detailsRow}>
-                    <Text style={styles.detailsRowTitle}>Your team</Text>
-                    <Text style={styles.detailsRowValue}>4</Text>
+                    <Text style={typography.subtitle}>Next Quiz</Text>
+                    <Text style={typography.title}>{mockedQuizDetails.details.nextQuizDate.format('DD.MM.YYYY')}</Text>
                 </View>
             </View>
 
             <Text style={styles.header}>All Quizes</Text>
-            <View style={styles.statsContainer}>
-                <View style={styles.statsRow}>
-                    <Text style={styles.statsRowHeader}>Total Income</Text>
-                    <Text style={styles.statsRowValue}>$ 1,302</Text>
-                </View>
-                <View style={styles.statsRow}>
-                    <Text style={styles.statsRowHeader}>Total Users</Text>
-                    <Text style={styles.statsRowValue}>1405</Text>
-                </View>
-                <View style={styles.statsRow}>
-                    <Text style={styles.statsRowHeader}>Total Quizes</Text>
-                    <Text style={styles.statsRowValue}>26</Text>
-                </View>
-                <View style={styles.statsRow}>
-                    <Text style={styles.statsRowHeader}>Total Days</Text>
-                    <Text style={styles.statsRowValue}>732</Text>
-                </View>
-                <View style={styles.statsRow}>
-                    <Text style={styles.statsRowHeader}>Best Team Overall</Text>
-                    <Text style={styles.statsRowValue}>Pablo</Text>
-                </View>
-            </View>
+            <FlatList
+                data={mockedQuizDetails.stats}
+                numColumns={2}
+                columnWrapperStyle={{ gap: 16}}
+                keyExtractor={(item) => item.key}
+                renderItem={({ item } ) => (
+                    <View style={styles.statsRow}>
+                        <Text style={typography.subtitle}>{item.key}</Text>
+                        <Text style={typography.subheader}>{item.value}</Text>
+                    </View>
+                )}
+                contentContainerStyle={styles.statsContainer}/>
         </View>
     );
 };
@@ -90,13 +82,16 @@ const styles = StyleSheet.create({
         justifyContent: "flex-start",
         alignItems: "center"
     },
+    manageRowContent: {
+        display: "flex",
+        flexDirection: "row",
+        flex: 1,
+        justifyContent: "space-between"
+    },
     manageRowIcon: {
         backgroundColor: '#cbd8e1',
         borderRadius: 4,
         padding: 6,
-    },
-    manageRowText: {
-        fontSize: 16
     },
     detailsContainer: {
         position: "relative",
@@ -111,20 +106,13 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         alignItems: "flex-end"
     },
-    detailsRowTitle: {
-        fontSize: 16,
-        fontWeight: "bold",
-    },
-    detailsRowValue: {
-        fontSize: 20,
-    },
     statsContainer: {
         position: "relative",
         display: "flex",
-        flexDirection: "row",
-        flexWrap: "wrap",
+        flex: 1,
+        alignItems: "center",
         justifyContent: "center",
-        gap: 16
+        gap: 16,
     },
     statsRow: {
         minWidth: "40%",
@@ -137,15 +125,6 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderColor: "#aaa"
     },
-    statsRowHeader: {
-        textAlign: "center",
-        fontSize: 14,
-        fontWeight: "bold"
-    },
-    statsRowValue: {
-        textAlign: "center",
-        fontSize: 24
-    }
 })
 
 export default HomeScreen;

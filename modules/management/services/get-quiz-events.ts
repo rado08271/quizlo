@@ -2,7 +2,7 @@ import moment from "moment/moment";
 
 export type QuizStatus = "passed" | "planned" | "active" | "cancelled"
 
-type QuizItem = {
+export type QuizItem = {
     id: string,
     quizName: string,
     quizDate?: moment,

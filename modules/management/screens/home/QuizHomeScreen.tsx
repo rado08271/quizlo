@@ -5,7 +5,7 @@ import {useNavigation} from "@react-navigation/native";
 import typography from "../../../../core/styles/typography";
 import {mockedQuizDetails} from "../../services/get-quiz-details";
 
-const HomeScreen = () => {
+const QuizHomeScreen = () => {
     const { navigate } = useNavigation()
 
     const navigateToCollaboratorsManagement = () => navigate("ManageQuizOrgs")
@@ -126,4 +126,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default HomeScreen;
+export default QuizHomeScreen;

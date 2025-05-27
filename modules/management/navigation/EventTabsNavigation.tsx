@@ -3,18 +3,23 @@ import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import EventDetailScreen from "../screens/details/EventDetailScreen";
 import ParticipantsListScreen from "../screens/details/ParticipantsListScreen";
 import ScoreboardScreen from "../screens/details/ScoreboardScreen";
-import SendMailsScreen from "../screens/details/SendMailsScreen";
+import CommunicationScreen from "../screens/details/CommunicationScreen";
 import ShowEventOptionsAction from "../components/ShowEventOptionsAction";
+import {eventDetail} from "../services/get-event-detail";
+import ParticipantsTabNavigation from "./ParticipantsTabNavigation";
 
 
 const Tab = createBottomTabNavigator();
 const EventTabsNavigation = ({route}) => {
+    console.log("route", route)
+    const data = eventDetail
+
     return (
-        <Tab.Navigator screenOptions={{headerShown: false}}>
-            <Tab.Screen name="EventDetail" component={EventDetailScreen}/>
-            <Tab.Screen name="ParticipantsList" component={ParticipantsListScreen} />
+        <Tab.Navigator screenOptions={{headerShown: false }}>
+            <Tab.Screen name="EventDetail" component={EventDetailScreen} options={{headerTitle: data.eventName}}/>
+            <Tab.Screen name="Participants" component={ParticipantsTabNavigation} />
             <Tab.Screen name="Scoreboard" component={ScoreboardScreen} />
-            <Tab.Screen name="SendMails" component={SendMailsScreen} />
+            {/*<Tab.Screen name="Communication" component={CommunicationScreen} />*/}
         </Tab.Navigator>
     );
 };

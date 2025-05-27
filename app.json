@@ -16,6 +16,7 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "cc.figura.quizlo",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"

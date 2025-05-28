@@ -21,49 +21,49 @@ const ProfileScreen = () => {
                 <View style={styles.profileSection}>
                     <Text style={typography.subtitle}>Account</Text>
                     <Pressable style={styles.profileItem}>
-                        <Text style={typography.content}>Edit Profile</Text>
+                        <Text style={typography.caption}>Edit Profile</Text>
                         <Icon name={'edit'} size={16}/>
                     </Pressable>
                     <Pressable style={styles.profileItem}>
-                        <Text style={typography.content}>Notifications</Text>
+                        <Text style={typography.caption}>Notifications</Text>
                         <Icon name={'shake'} size={16}/>
                     </Pressable>
                     <Pressable style={styles.profileItem}>
-                        <Text style={typography.content}>Security</Text>
+                        <Text style={typography.caption}>Security</Text>
                         <Icon name={'Safety'} size={16}/>
                     </Pressable>
                     <Pressable style={styles.profileItem}>
-                        <Text style={typography.content}>Language</Text>
+                        <Text style={typography.caption}>Language</Text>
                         <Icon name={'earth'} size={16}/>
                     </Pressable>
                 </View>
                 <View style={styles.profileSection}>
                     <Text style={typography.subtitle}>Support</Text>
                     <Pressable style={styles.profileItem}>
-                        <Text style={typography.content}>About</Text>
+                        <Text style={typography.caption}>About</Text>
                         <Icon name={'infocirlceo'} size={16}/>
                     </Pressable>
                     <Pressable style={styles.profileItem}>
-                        <Text style={typography.content}>Help Center</Text>
+                        <Text style={typography.caption}>Help Center</Text>
                         <Icon name={'questioncircleo'} size={16}/>
                     </Pressable>
                     <Pressable style={styles.profileItem}>
-                        <Text style={typography.content}>Contact Us</Text>
+                        <Text style={typography.caption}>Contact Us</Text>
                         <Icon name={'customerservice'} size={16}/>
                     </Pressable>
                 </View>
                 <View style={styles.profileSection}>
                     <Text style={typography.subtitle}>Legal</Text>
                     <Pressable style={styles.profileItem}>
-                        <Text style={typography.content}>Terms of Service</Text>
+                        <Text style={typography.caption}>Terms of Service</Text>
                         <Icon name={'carryout'} size={16}/>
                     </Pressable>
                     <Pressable style={styles.profileItem}>
-                        <Text style={typography.content}>Privacy Policy</Text>
+                        <Text style={typography.caption}>Privacy Policy</Text>
                         <Icon name={'flag'} size={16}/>
                     </Pressable>
                     <Pressable style={styles.profileItem}>
-                        <Text style={typography.content}>Delete Account</Text>
+                        <Text style={typography.caption}>Delete Account</Text>
                         <Icon name={'delete'} size={16}/>
                     </Pressable>
                 </View>
